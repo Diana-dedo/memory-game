@@ -1,0 +1,16 @@
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.card {
+    aspect-ratio: 1 / 1;
+    border: none;
+    background-color: #cc99ff; 
+    border-radius: 30%;
+    font-size: 2rem;
+    cursor: pointer;
+}
