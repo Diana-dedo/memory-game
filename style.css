@@ -14,3 +14,13 @@
     font-size: 2rem;
     cursor: pointer;
 }
+
+.card.is-open {
+    background-color: #ffffff;
+    border: 2px solid #cc99ff;
+    cursor: default;
+}
+
+.card.is-open::before {
+    content: attr(data-emoji);
+}
