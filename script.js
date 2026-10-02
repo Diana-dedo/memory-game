@@ -18,14 +18,32 @@ function shuffle(array) {
 
 shuffle(cardsData);
 
+let firstCard = null;
+let secondCard = null;
+
 cardsData.forEach((emoji) => {
     const card = document.createElement('button');
     card.className = 'card';
-    // card.textContent = emoji;
     card.dataset.emoji = emoji;
 
     card.addEventListener('click', () => {
         card.classList.add('is-open');
+        if (firstCard === null) {
+            firstCard = card;
+        } else {
+            secondCard = card;
+            if (firstCard.dataset.emoji === secondCard.dataset.emoji) {
+                firstCard = null;
+                secondCard = null;
+            } else {
+                setTimeout(() => {
+                    firstCard.classList.remove('is-open');
+                    secondCard.classList.remove('is-open');
+                    firstCard = null;
+                    secondCard = null;
+                }, 1000);
+            }
+        }
     })
 
     gameBoard.append(card);
