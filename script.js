@@ -2,18 +2,63 @@ const cardsData = ['🍏', '🍏', '🍌', '🍌', '🍇', '🍇', '🍉', '🍉
 
 let movesCount = 0;
 let matchesCount = 0;
+let firstCard = null;
+let secondCard = null;
+let isBoardLocked = false;
 
-const movesDisplay = document.createElement('div');
-movesDisplay.textContent = 'Число ходов: 0';
-document.body.append(movesDisplay);
-
-const matchesDisplay = document.createElement('div');
-matchesDisplay.textContent = 'Найденных пар: 0';
-document.body.append(matchesDisplay);
+const headerMenu = document.createElement('div');
+headerMenu.className = 'header-menu';
+document.body.append(headerMenu); 
 
 const myButton = document.createElement('button');
 myButton.textContent = 'Новая игра';
-document.body.append(myButton);
+headerMenu.append(myButton);
+
+const headerRight = document.createElement('div');
+headerRight.className = 'header-right';
+headerMenu.append(headerRight); 
+
+const leaderboardButton = document.createElement('button');
+leaderboardButton.textContent = 'Таблица лидеров';
+headerRight.append(leaderboardButton);
+
+leaderboardButton.addEventListener('click', () => {
+    console.log('Кликнули по таблице лидеров!');
+});
+
+const movesDisplay = document.createElement('div');
+movesDisplay.className = 'score-stat';
+movesDisplay.textContent = 'Число ходов: 0';
+headerRight.append(movesDisplay);
+
+const matchesDisplay = document.createElement('div');
+matchesDisplay.className = 'score-stat';
+matchesDisplay.textContent = 'Найденных пар: 0';
+headerRight.append(matchesDisplay);
+
+const winModal = document.createElement('div');
+winModal.className = 'modal-overlay';
+document.body.append(winModal);
+
+const winContent = document.createElement('div');
+winContent.className = 'modal-content';
+winModal.append(winContent);
+
+const winTitle = document.createElement('h2');
+winTitle.textContent = 'Победа! 🎉';
+winContent.append(winTitle);
+
+const winText = document.createElement('p');
+winContent.append(winText);
+
+const winCloseButton = document.createElement('button');
+winCloseButton.textContent = 'Играть снова';
+winContent.append(winCloseButton);
+
+winCloseButton.addEventListener('click', () => {
+    winModal.classList.remove('is-visible');
+    myButton.click();
+})
 
 const gameBoard = document.createElement('div');
 gameBoard.className = 'game-board';
@@ -46,7 +91,10 @@ function startGame() {
                 secondCard = null;
 
                 if (matchesCount === 8) {
-                    setTimeout(() => alert('Поздравляем! Вы нашли все пары!'), 500);
+                    setTimeout(() => {
+                        winText.textContent = `Вы нашли все пары за ${movesCount} ходов!`;
+                        winModal.classList.add('is-visible');
+                    }, 500);
                 }
             } else {
                 movesCount++
@@ -90,7 +138,3 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
-
-let firstCard = null;
-let secondCard = null;
-let isBoardLocked = false;
