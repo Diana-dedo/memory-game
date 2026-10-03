@@ -23,7 +23,7 @@ leaderboardButton.textContent = 'Таблица лидеров';
 headerRight.append(leaderboardButton);
 
 leaderboardButton.addEventListener('click', () => {
-    console.log('Кликнули по таблице лидеров!');
+    leaderModal.classList.add('is-visible');
 });
 
 const movesDisplay = document.createElement('div');
@@ -54,6 +54,49 @@ winContent.append(winText);
 const winCloseButton = document.createElement('button');
 winCloseButton.textContent = 'Играть снова';
 winContent.append(winCloseButton);
+
+const leaderModal = document.createElement('div');
+leaderModal.className = 'modal-overlay';
+document.body.append(leaderModal);
+
+const leaderContent = document.createElement('div');
+leaderContent.className = 'leaderboard-content';
+leaderModal.append(leaderContent);
+
+const leaderTitle = document.createElement('h2');
+leaderTitle.textContent = 'Таблица лидеров 🏆';
+leaderContent.append(leaderTitle);
+
+const leaderList = document.createElement('ul');
+leaderList.className = 'leaderboard-list';
+leaderContent.append(leaderList);
+
+const fakeSpans = [
+    { name: 'Диана', score: '12 ходов' },
+    { name: 'Алексей', score: '18 ходов' },
+    { name: 'Мария', score: '22 хода' }
+];
+
+fakeSpans.forEach(player => {
+    const li = document.createElement('li');
+    
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = player.name;
+    
+    const scoreStrong = document.createElement('strong');
+    scoreStrong.textContent = player.score;
+
+    li.append(nameSpan, scoreStrong);
+    leaderList.append(li);
+})
+
+const leaderCloseButton = document.createElement('button');
+leaderCloseButton.textContent = 'Закрыть';
+leaderContent.append(leaderCloseButton);
+
+leaderCloseButton.addEventListener('click',() => {
+    leaderModal.classList.remove('is-visible');
+})
 
 winCloseButton.addEventListener('click', () => {
     winModal.classList.remove('is-visible');
