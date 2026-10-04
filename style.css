@@ -101,7 +101,8 @@ button:not(.card):hover {
     pointer-events: auto;
 }
 
-.modal-content, .leaderboard-content {
+.modal-content,
+.leaderboard-content {
     background-color: white;
     padding: 30px;
     border-radius: 20px;
@@ -113,14 +114,15 @@ button:not(.card):hover {
     transition: transform 0.3s ease;
 }
 
-.modal-overlay.is-visible .modal-content , 
-.modal-overlay.is-visible .leaderboard-content {
+.modal-overlay.is-visible .modal-content,
+.modal-overlay.is-visible .leaderboard-content  {
     transform: translateY(0);
 }
 
 .modal-content h2 {
     color: #4caf50;
     margin-top: 0;
+    margin-bottom: 15px;
 }
 
 .modal-content p {
@@ -140,11 +142,16 @@ button:not(.card):hover {
     border-bottom: 1px solid #eee;
     display: flex;
     justify-content: space-between;
+    font-size: 1rem;
 }
 
 .leaderboard-content h2 {
     color: #4caf50;
     margin-top: 0;
+}
+
+.modal-content button {
+    margin: 5px; 
 }
 
 @media (max-width: 480px) {
@@ -182,5 +189,25 @@ button:not(.card):hover {
         display: flex;
         align-items: center;
         min-width: 60px;
+    }
+    .modal-content,
+    .leaderboard-content {
+        padding: 20px 15px;
+        min-width: 290px;
+        width: 85%;
+        border-radius: 15px;
+    }
+    .modal-content h2,
+    .leaderboard-content h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+    .modal-content p {
+        font-size: 1rem;
+        margin: 10px 0 20px;
+    }
+    .leaderboard-list {
+        margin: 15px 0;
+        font-size: 0.9rem;
     }
 }
