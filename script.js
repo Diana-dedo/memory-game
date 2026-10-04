@@ -33,7 +33,7 @@ headerRight.append(movesDisplay);
 
 const matchesDisplay = document.createElement('div');
 matchesDisplay.className = 'score-stat';
-matchesDisplay.textContent = 'Найденных пар: 0';
+matchesDisplay.textContent = 'Найдено пар: 0';
 headerRight.append(matchesDisplay);
 
 const winModal = document.createElement('div');
@@ -82,7 +82,7 @@ fakeSpans.forEach(player => {
     
     const nameSpan = document.createElement('span');
     nameSpan.textContent = player.name;
-    
+
     const scoreStrong = document.createElement('strong');
     scoreStrong.textContent = player.score;
 
@@ -125,7 +125,7 @@ function startGame() {
             if (firstCard.dataset.emoji === secondCard.dataset.emoji) {
 
                 matchesCount++;
-                matchesDisplay.textContent = `Найденных пар: ${matchesCount}`;
+                matchesDisplay.textContent = `Найдено пар: ${matchesCount}`;
 
                 movesCount++;
                 movesDisplay.textContent = `Число ходов: ${movesCount}`;
@@ -169,7 +169,7 @@ myButton.addEventListener('click', () => {
     movesCount = 0;
     matchesCount = 0;
     movesDisplay.textContent = 'Число ходов: 0';
-    matchesDisplay.textContent = 'Найденных пар: 0';
+    matchesDisplay.textContent = 'Найдено пар: 0';
 
     startGame();
 });

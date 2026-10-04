@@ -52,7 +52,7 @@ button:not(.card) {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, background-color 0.2s;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 button:not(.card):hover {
@@ -145,4 +145,42 @@ button:not(.card):hover {
 .leaderboard-content h2 {
     color: #4caf50;
     margin-top: 0;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px 5px;
+    }
+    h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    .header-menu {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 15px;
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 6px;
+    }
+    button:not(.card) {
+        padding: 8px 12px;
+        font-size: 0.75rem;
+        border-radius: 15px;
+        margin-bottom: 0;
+        white-space: nowrap;
+    }
+    .score-stat {
+        font-size: 0.8rem;
+        padding: 6px 3px;
+        border-radius: 15px;
+        display: flex;
+        align-items: center;
+        min-width: 60px;
+    }
 }
