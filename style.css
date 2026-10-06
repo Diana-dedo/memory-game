@@ -21,18 +21,23 @@ body {
 .header-menu {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     width: 100%;
     max-width: 600px;
     margin-bottom: 20px;
     gap: 10px;
 }
 
-.header-right {
+.score-container {
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 15px;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 15px; 
 }
+
 
 h1 {
     font-size: 2.5rem;
@@ -164,16 +169,10 @@ button:not(.card):hover {
     }
     .header-menu {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
         gap: 5px;
         margin-bottom: 15px;
-    }
-    .header-right {
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        gap: 6px;
     }
     button:not(.card) {
         padding: 8px 12px;
