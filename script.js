@@ -56,23 +56,20 @@ headerMenu.append(myButton);
 
 const headerRight = document.createElement('div');
 headerRight.className = 'header-right';
-headerMenu.append(headerRight); // 🌟 ИСПРАВЛЕНО: Кнопка "Таблица лидеров" останется наверху!
+headerMenu.append(headerRight); 
 
-// 4. Кнопка Таблицы лидеров кладётся в хедер (у тебя уже есть)
 const leaderboardButton = document.createElement('button');
 leaderboardButton.textContent = 'Таблица лидеров';
 headerRight.append(leaderboardButton);
 
-// 5. Создаём коробку для счётчиков (у тебя уже есть)
 const scoreContainer = document.createElement('div');
 scoreContainer.className = 'score-container';
-document.body.append(scoreContainer); // Она встанет над игрой
+document.body.append(scoreContainer); 
 
-// 6. 🌟 ИСПРАВЛЕНО: Счётчики кладём строго внутрь scoreContainer!
 const movesDisplay = document.createElement('div');
 movesDisplay.className = 'score-stat';
 movesDisplay.textContent = 'Число ходов: 0';
-scoreContainer.append(movesDisplay); // Перенаправили сюда
+scoreContainer.append(movesDisplay); 
 
 const matchesDisplay = document.createElement('div');
 matchesDisplay.className = 'score-stat';
